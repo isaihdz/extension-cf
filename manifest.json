@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Selector de curso cf",
+  "version": "0.1",
+  "description": "Permite señalar cursos de cf con duración menor o igual a la configurada por el usuario",
+  "author": "Isaí Hernández",
+  "version_name": "0.1 Alpha",
+  "icons": {
+    "16": "img/icon-16.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "storage"],
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
+  "content_scripts": [{
+    "matches": ["http://codigofacilito.com/courses"],
+    "js": ["js/content.js"],
+    "run_at": "document_idle"
+  }],
+  "options_page": "options.html"
+}
